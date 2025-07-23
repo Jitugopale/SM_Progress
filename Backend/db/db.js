@@ -13,7 +13,7 @@ const dbConfig = {
     port: 1433, // Default SQL Server port
 }
 
-const pool = new sql.connectionPool(dbConfig);
+const pool = new sql.ConnectionPool(dbConfig);
 // const poolConnect = pool.connect();
 
 const poolConnect = async () => {
@@ -32,7 +32,7 @@ const poolConnect = async () => {
   }
 };
 
-export { pool, poolConnect };
+export { sql, pool, poolConnect };
 
 // pool.on('error', err => {
 //     console.error('SQL Server connection pool error:', err);
