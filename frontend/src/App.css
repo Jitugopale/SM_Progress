@@ -1,0 +1,5 @@
+.register-back{
+    background-image: url('./components/Authentication/images/register-back.png');
+    background-size: cover;
+    background-position: center;
+}

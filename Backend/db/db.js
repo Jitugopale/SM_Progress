@@ -1,17 +1,19 @@
 import sql from "mssql";
+import dotenv from "dotenv";
+dotenv.config();
 
 const dbConfig = {
-    user: "sa",
-    password: "sql@123",
-    server: "localhost",
-    database: "service_management",
-    // TrustServerCertificate: true is often required for development
-    options: {
-        encrypt: false, // Use true if your SQL Server requires encryption
-        trustServerCertificate: true,
-    },
-    port: 1433, // Default SQL Server port
-}
+  user:process.env.USER,
+  password:process.env.PASSWORD,
+  server:process.env.SERVER,
+  database:process.env.DATABASE,
+  // TrustServerCertificate: true is often required for development
+  options: {
+    encrypt: false, // Use true if your SQL Server requires encryption
+    trustServerCertificate: true,
+  },
+  port: 1433, // Default SQL Server port
+};
 
 const pool = new sql.ConnectionPool(dbConfig);
 // const poolConnect = pool.connect();

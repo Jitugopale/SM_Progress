@@ -109,6 +109,7 @@ export const getUserController = async (req, res) => {
       }
     });
   }
+  
   const userId = req.user.id;
 
   const getUserRequest = pool.request();
