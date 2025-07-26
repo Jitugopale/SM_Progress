@@ -1,15 +1,18 @@
 import React from "react";
+import { Card } from "../ui/card";
+import {Link} from "react-router-dom"
 
 const RegitserPage = () => {
   return (
     <div className="register">
-      <div className="register-back h-screen w-full">
-        <div className="max-w-sm mx-auto sm:max-w-md">
+      <div className="register-back flex items-center h-screen w-full">
+        <Card className="max-w-md mx-auto my-auto p-4">
+           <div className="max-w-sm mx-auto sm:max-w-sm">
           <div className="mb-1">
-            <h1 className="text-3xl font-bold">Create your Business Account</h1>
+            <h1 className="text-3xl font-bold min-w-md sm:min-w-md">Create your Account</h1>
           </div>
           <div className="mb-4">
-            <p className="text-sm">Already have an account? <a href="#" className="text-blue-600 font-medium">Login here.</a></p>
+            <p className="text-sm">Already have an account? <Link to="/login" className="text-blue-600 font-medium">Login here.</Link></p>
           </div>
           <div className="max-w-sm">
             <form>
@@ -151,6 +154,7 @@ const RegitserPage = () => {
           </form>
           </div>
         </div>
+        </Card>
       </div>
     </div>
   );
