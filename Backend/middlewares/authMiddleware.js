@@ -1,5 +1,7 @@
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv"
+import { UnauthorizedException } from "../exceptions/unauthorized.js";
+import { ErrorCodes } from "../exceptions/root.js";
 dotenv.config();
 
 const JWT_SECRET = process.env.JWT_SECRET;
@@ -11,13 +13,13 @@ export const authMiddleware = (req, res, next) => {
     const token = req.header("auth-token");
 
     if (!token) {
-      return res.status(401).json("Unauthorized Access");
+      return next(new UnauthorizedException("Unauthorized Access",ErrorCodes.UNAUTHORIZED));
     }
 
     const user = jwt.verify(token, JWT_SECRET);
    
     if(!user){
-        return res.status(401).json("Unauthorized Access");
+        return next(new UnauthorizedException("Unauthorized Access",ErrorCodes.UNAUTHORIZED));
     }
     req.user = user;
 
@@ -25,6 +27,6 @@ export const authMiddleware = (req, res, next) => {
     
 
   } catch (error) {
-    return res.status(401).json("Unauthorized Access");
+    return next(new UnauthorizedException("Unauthorized Access",ErrorCodes.UNAUTHORIZED));
   }
 };

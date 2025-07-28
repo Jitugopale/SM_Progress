@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv"
 import userRouter from "./routes/authRoutes.js";
 import { poolConnect } from "./db/db.js";
+import { globalErrorHandler } from "./errorhandler.js";
 dotenv.config();
 
 const app = express();
@@ -25,6 +26,8 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api",userRouter)
+
+app.use(globalErrorHandler);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
