@@ -14,7 +14,7 @@ const AdminDashboard = () => {
     totalCallMaster: 0,
   });
 
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
 
   const cardData = [
     { 
@@ -82,7 +82,7 @@ const AdminDashboard = () => {
   // Simulate API fetch
   useEffect(() => {
     const fetchCounts = async () => {
-      setLoading(true);
+      // setLoading(true);
       // Simulate API call
       setTimeout(() => {
         setCounts({
@@ -93,7 +93,7 @@ const AdminDashboard = () => {
           totalStaff: 28,
           totalCallMaster: 12,
         });
-        setLoading(false);
+        // setLoading(false);
       }, 1500);
     };
 
@@ -254,16 +254,16 @@ const AdminDashboard = () => {
     { name: 'Call Staff', value: counts.totalCallMaster || 0 },
   ];
 
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-600 mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading dashboard...</p>
-        </div>
-      </div>
-    );
-  }
+  // if (loading) {
+  //   return (
+  //     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 flex items-center justify-center">
+  //       <div className="text-center">
+  //         <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-600 mx-auto mb-4"></div>
+  //         <p className="text-gray-600">Loading dashboard...</p>
+  //       </div>
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className="flex-1 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 p-6 min-h-screen">
